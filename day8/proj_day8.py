@@ -25,7 +25,6 @@ def caesar(start_text, shift_amount, cipher_direction):
     if cipher_direction == "decode":
         shift_amount *= -1
     for letter in start_text:
-        """ """
         if letter not in alphabet_t:
             end_text += letter
         else:
@@ -64,10 +63,11 @@ while re_run:
 
         # Enable either caesar or caesar1
 
-        caesar(start_text=text, shift_amount=shift, cipher_direction=direction)
-        # caesar1(start_text=text, shift_amount=shift, cipher_direction=direction)
+        # caesar(start_text=text, shift_amount=shift, cipher_direction=direction)
+        caesar1(start_text=text, shift_amount=shift, cipher_direction=direction)
     else:
         print("Please insert either 'encode' or 'decode'. Anything else won't work!")
     restart = input("Type 'yes' if you want to go again. Otherwise type 'no'.\n")
     if restart != "yes":
-        break
+        print("GoodBye!")
+        re_run = False
