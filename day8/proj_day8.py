@@ -19,7 +19,7 @@ Hint: Try creating a while loop that continues to execute the program if the use
 from art import logo
 from alphabets import alphabet_t, alphabet
 
-
+# Simple code by using 2 set of alphabets
 def caesar(start_text, shift_amount, cipher_direction):
     end_text = ""
     if cipher_direction == "decode":
@@ -35,24 +35,27 @@ def caesar(start_text, shift_amount, cipher_direction):
     print(f"Here's the {cipher_direction}d result: {end_text}")
 
 
+# logic using list & roatate list
 def caesar1(start_text, shift_amount, cipher_direction):
     lst_text = [l for l in start_text]
+    # this will rotate the whole Alphabet list as per the shift_amount & direction
     if cipher_direction == "encode":
         shifted_alphabet = alphabet[shift_amount:] + alphabet[0:shift_amount]
     elif cipher_direction == "decode":
         shifted_alphabet = alphabet[-shift_amount:] + alphabet[0:-shift_amount]
+    # to get index from original alphabets list & apply that index to get it from new shifted_alphabets
     for index in range(len(lst_text)):
         if lst_text[index] in alphabet:
             alphabet_index = alphabet.index(lst_text[index])
             lst_text[index] = shifted_alphabet[alphabet_index]
+    # Join the string to display output as a string.
     final_text = "".join(lst_text)
     print(f"The {direction}d text is {final_text}")
 
 
 re_run = True
-
+# this loop will check if user wants to re-run application or wants to exit.
 while re_run:
-
     print(logo)
     direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
     if direction == "encode" or direction == "decode":
@@ -60,9 +63,7 @@ while re_run:
         shift = int(input("Type the shift number:\n"))
         if shift > 26:
             shift = shift % 26
-
-        # Enable either caesar or caesar1
-
+        # Enable either caesar(Simple logic) or caesar1(list Conversion and list rotation logic)
         # caesar(start_text=text, shift_amount=shift, cipher_direction=direction)
         caesar1(start_text=text, shift_amount=shift, cipher_direction=direction)
     else:
