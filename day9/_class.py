@@ -34,11 +34,11 @@ student_scores = {
 }
 # 🚨 Don't change the code above 👆
 
-# TODO-1: Create an empty dictionary called student_grades.
+# [x]TODO-1: Create an empty dictionary called student_grades.
 student_grades = {}
 
 
-# TODO-2: Write your code below to add the grades to student_grades.👇
+# [x]TODO-2: Write your code below to add the grades to student_grades.👇
 for key in student_scores:
     val = student_scores[key]
     if val > 90 and val <= 100:
@@ -82,7 +82,7 @@ travel_log = [
 ]
 # 🚨 Do NOT change the code above
 
-# TODO: Write the function that will allow new countries
+# [x]TODO: Write the function that will allow new countries
 # to be added to the travel_log. 👇
 def add_new_country(country, visits, cities):
     new_dict = {}
