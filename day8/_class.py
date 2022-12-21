@@ -100,7 +100,7 @@ alphabet = [
 # new_index = shifted_alphabet.index(l) + shift
 # lst_text[lst_text.index(l)] = alphabet[new_index]
 
-# TODO-1: Create a function called 'encrypt' that takes the 'text' and 'shift' as inputs.
+# [x]TODO-1: Create a function called 'encrypt' that takes the 'text' and 'shift' as inputs.
 
 
 def encrypt(text, shift):

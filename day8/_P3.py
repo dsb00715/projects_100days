@@ -1,6 +1,6 @@
 """
-# TODO-1: Combine the encrypt() and decrypt() functions into a single function called caesar().
-# TODO-2: Call the caesar() function, passing over the 'text', 'shift' and 'direction' values.
+# [x]TODO-1: Combine the encrypt() and decrypt() functions into a single function called caesar().
+# [x]TODO-2: Call the caesar() function, passing over the 'text', 'shift' and 'direction' values.
 """
 
 from alphabets import alphabet_t, alphabet
