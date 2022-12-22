@@ -72,9 +72,6 @@ def main():
         elif user_ip == "report":
             show_report(resources=resources, money=money_earned)
         elif user_ip == "espresso" or user_ip == "latte" or user_ip == "cappuccino":
-            # money_earned, resources = make_coffee(
-            #     resources=resources, coffee_type=user_ip, money_earned=money_earned
-            # )
             money_earned = make_coffee(
                 resources=resources, coffee_type=user_ip, money_earned=money_earned
             )
