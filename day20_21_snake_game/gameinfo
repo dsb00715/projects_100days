@@ -1,8 +1,0 @@
-# NOTE: Snake Game TODOs 
-#[x] TODO1: Create a snake body.
-#[x] TODO2: How to move the snake.
-#[ ] TODO3: Control the snake body.
-#[ ] TODO4: Put the food on the screen, Detect collision with food & increase snake length as it eats food. 
-#[ ] TODO5: Create a scoreboard & maintain it.
-#[ ] TODO6: Detect collision with walls.
-#[ ] TODO7: Detect collision with tail.
