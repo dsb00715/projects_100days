@@ -2,13 +2,15 @@
 # [x] TODO1: Create a snake body.
 # [x] TODO2: How to move the snake.
 # [x] TODO3: Control the snake body.
-# [ ] TODO4: Put the food on the screen, Detect collision with food & increase snake length as it eats food.
-# [ ] TODO5: Create a scoreboard & maintain it.
-# [ ] TODO6: Detect collision with walls.
-# [ ] TODO7: Detect collision with tail.
+# [x] TODO4: Put the food on the screen, Detect collision with food & increase snake length as it eats food.
+# [x] TODO5: Create a scoreboard & maintain it.
+# [x] TODO6: Detect collision with walls.
+# [x] TODO7: Detect collision with tail.
 
 from turtle import Screen
 from snake import Snake
+from food import Food
+from scoreboard import Scoreboard
 import time
 
 
@@ -23,6 +25,8 @@ def main():
 
     # create instance from snake class to show snake body.
     snake = Snake()
+    food = Food()
+    score = Scoreboard()
 
     # To listen to key instruction from keyboard & control snake movement
     screen.listen()
@@ -36,6 +40,29 @@ def main():
         screen.update()  # it is necessary to call update after tracer method set to null.
         time.sleep(0.1)  # to control snake speed.
         snake.move()
+
+        # Detect collision with food
+        if snake.snake_head.distance(food) < 15:
+            food.relocate()
+            snake.extend()
+            score.update_score()
+
+        # Detect collision with wall
+        if (
+            snake.snake_head.xcor() > 280
+            or snake.snake_head.xcor() < -280
+            or snake.snake_head.ycor() > 280
+            or snake.snake_head.ycor() < -280
+        ):
+            game_is_on = False
+            score.game_over()
+
+        # Detect collision with tail.
+        for part in snake.snake_body[1:]:
+            if snake.snake_head.distance(part) < 10:
+                game_is_on = False
+                score.game_over()
+        # if head collides with tail, trigger game_over function
 
     screen.exitonclick()
 

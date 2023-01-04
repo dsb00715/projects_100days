@@ -1,5 +1,6 @@
 from turtle import Turtle
 
+STARTING_POSITIONS = [(0, 0), (-20, 0), (-40, 0)]
 MOVE_DISTANCE = 20
 UP = 90
 DOWN = 270
@@ -15,16 +16,28 @@ class Snake:
         self.snake_body = []
         self.snake()
         self.snake_head = self.snake_body[0]
+        # self.snake_head.color("green")
 
     def snake(self):
-        x_cor = 0
-        for _ in range(3):
-            self.snake = Turtle(shape="square")
-            self.snake.color("white")
-            self.snake.penup()
-            self.snake.goto(x=x_cor, y=0)
-            self.snake_body.append(self.snake)
-            x_cor -= 20
+        """default method to create snake body"""
+        for position in STARTING_POSITIONS:
+            self.add_body_part(position=position)
+
+    def add_body_part(self, position):
+        """Add a snake body part when asked
+
+        Args:
+            position (int): x-coordinate position
+        """
+        snake = Turtle(shape="square")
+        snake.color("white")
+        snake.penup()
+        snake.goto(position)
+        self.snake_body.append(snake)
+
+    def extend(self):
+        """Add new part at the tail of the snake"""
+        self.add_body_part(self.snake_body[-1].position())
 
     def move(self):
         """when called, Snake will start moving in forward direction."""
