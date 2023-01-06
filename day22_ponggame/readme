@@ -1,0 +1,13 @@
+# NOTE: Pong Game - TODOs
+# [x] TODO1: Create Screen and 2 side Paddles.
+# [x] TODO2: how to move paddles.
+# [x] TODO3: Create ball & how to move ball.
+# [x] TODO4: Control collision of ball with Wall.
+# [x] TODO5: Detect & control collision with paddle.
+# [x] TODO6: Create scoreboard and maintain it,
+# [x] TODO7: keep display scores for each player side
+
+# NOTE: Required Classes
+# [x] 1. Paddles class
+# [x] 2. Ball class
+# [x] 3. Scoreboard class

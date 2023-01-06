@@ -38,7 +38,7 @@ def main():
     game_is_on = True
     while game_is_on:
         screen.update()  # it is necessary to call update after tracer method set to null.
-        time.sleep(0.1)  # to control snake speed.
+        time.sleep(0.3)  # to control snake speed.
         snake.move()
 
         # Detect collision with food
@@ -55,12 +55,14 @@ def main():
             or snake.snake_head.ycor() < -280
         ):
             game_is_on = False
+            [snake.clear() for snake in snake.snake_body]
             score.game_over()
 
         # Detect collision with tail.
         for part in snake.snake_body[1:]:
             if snake.snake_head.distance(part) < 10:
                 game_is_on = False
+                [snake.clear() for snake in snake.snake_body]
                 score.game_over()
         # if head collides with tail, trigger game_over function
 

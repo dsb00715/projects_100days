@@ -16,7 +16,7 @@ class Snake:
         self.snake_body = []
         self.snake()
         self.snake_head = self.snake_body[0]
-        # self.snake_head.color("green")
+        self.snake_head.color("green")
 
     def snake(self):
         """default method to create snake body"""
