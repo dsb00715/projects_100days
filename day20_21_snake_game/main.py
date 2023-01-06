@@ -62,6 +62,7 @@ def main():
         for part in snake.snake_body[1:]:
             if snake.snake_head.distance(part) < 10:
                 game_is_on = False
+                [snake.clear() for snake in snake.snake_body]
                 score.game_over()
         # if head collides with tail, trigger game_over function
 

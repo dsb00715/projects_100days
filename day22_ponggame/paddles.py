@@ -1,28 +1,42 @@
 from turtle import Turtle
 
 
-UP = 90
-DOWN = 180
+PADDLE_SPEED = "fastest"
+PADDLE_COLOR = "White"
+# when up/down/w/s key is pressed, paddle will move for described steps here.
+PADDLE_MOVE_DISTANCE = 20
 
 
-class Paddle:
-    def __init__(self, position):
-        self.paddle = self.create_paddle(position)
+class Paddle(Turtle):
+    """this class is inherited from Turtle class and used for creating paddles in Pong game.
 
-    def create_paddle(self, position):
-        paddle = Turtle("square")
-        paddle.color("white")
-        paddle.penup()
-        paddle.speed(0)
-        paddle.shapesize(stretch_wid=5, stretch_len=1)
-        paddle.goto(position)
+    Args:
+        Turtle (_type_): Turtle library python.
+    """
 
-        return paddle
+    def __init__(self, position, shape):
+
+        """This method creates basic paddles of given shape on given position.
+
+        Args:
+            position (tuple): a location tuple is required.
+            for ex., (350, 0)
+            shape (str): required shape of the turtle.
+            for ex., ("square")
+        """
+        super().__init__(shape=shape)
+        self.color(PADDLE_COLOR)
+        self.penup()
+        self.speed(PADDLE_SPEED)
+        self.shapesize(stretch_wid=5, stretch_len=1)
+        self.goto(position)
 
     def up(self):
-        # self.y_cor += 20
-        self.paddle.goto(self.paddle.xcor(), self.paddle.ycor() + 20)
+        """This method moves paddle in upward direction"""
+        if self.ycor() < 260:
+            self.goto(self.xcor(), self.ycor() + PADDLE_MOVE_DISTANCE)
 
     def down(self):
-        # self.y_cor -= 20
-        self.paddle.goto(self.paddle.xcor(), self.paddle.ycor() - 20)
+        """This method moves paddle in downward direction"""
+        if self.ycor() > -260:
+            self.goto(self.xcor(), self.ycor() - PADDLE_MOVE_DISTANCE)
