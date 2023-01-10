@@ -35,17 +35,18 @@ def main():
     screen.onkey(fun=snake.left, key="Left")
     screen.onkey(fun=snake.right, key="Right")
 
+    limit = 10  # To increase speed after a while.
     game_is_on = True
     while game_is_on:
         screen.update()  # it is necessary to call update after tracer method set to null.
-        time.sleep(0.3)  # to control snake speed.
+        time.sleep(snake.speed)  # to control snake speed.
         snake.move()
 
         # Detect collision with food
         if snake.snake_head.distance(food) < 15:
             food.relocate()
             snake.extend()
-            score.update_score()
+            score.increase_score()
 
         # Detect collision with wall
         if (
@@ -54,16 +55,26 @@ def main():
             or snake.snake_head.ycor() > 280
             or snake.snake_head.ycor() < -280
         ):
-            game_is_on = False
+            """game_is_on = False
             [snake.clear() for snake in snake.snake_body]
-            score.game_over()
+            score.game_over()"""
+            score.reset_score()
+            snake.reset_snake()
+
+        # increase speed every time score is +10
+        if score.score >= limit:
+            snake.increase_speed()
+            limit += score.score
+            print(snake.speed)
 
         # Detect collision with tail.
         for part in snake.snake_body[1:]:
             if snake.snake_head.distance(part) < 10:
-                game_is_on = False
+                """game_is_on = False
                 [snake.clear() for snake in snake.snake_body]
-                score.game_over()
+                score.game_over()"""
+                score.reset_score()
+                snake.reset_snake()
         # if head collides with tail, trigger game_over function
 
     screen.exitonclick()
