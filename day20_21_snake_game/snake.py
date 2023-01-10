@@ -17,6 +17,7 @@ class Snake:
         self.snake()
         self.snake_head = self.snake_body[0]
         self.snake_head.color("green")
+        self.speed = 0.3
 
     def snake(self):
         """default method to create snake body"""
@@ -66,3 +67,15 @@ class Snake:
         """when called, Snake will turn 0°."""
         if self.snake_head.heading() != LEFT:
             self.snake_head.setheading(RIGHT)
+
+    def reset_snake(self):
+        for snake in self.snake_body:
+            snake.goto(1000, 1000)
+        self.snake_body.clear()
+        self.snake()
+        self.speed = 0.3
+        self.snake_head = self.snake_body[0]
+        self.snake_head.color("green")
+
+    def increase_speed(self):
+        self.speed *= 0.9
