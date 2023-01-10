@@ -1,0 +1,10 @@
+# NOTE: Pong Game - TODOs
+
+    # [x] TODO1: Create Turtle player.
+    # [x] TODO2: how to move Turtle by key press.
+    # [x] TODO3: Create car_manager & Prepare car_manager behavior.
+    # [x] TODO4: Detect turtle collision with cars.
+    # [x] TODO5: Detect when turtle reaches the other side.
+    # [x] TODO6: Create Scoreboard to display level.
+    # [x] TODO7: Check for bugs & prepare game over sequence.
+
