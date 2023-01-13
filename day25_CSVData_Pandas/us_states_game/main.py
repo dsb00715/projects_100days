@@ -38,6 +38,13 @@ while count < 50:
     ).title()
 
     if guess == "Exit":
+        remaining_states = [
+            state for state in all_states if state not in guessed_list
+        ]  # list comprehension
+        remaining_states_df = pd.DataFrame(remaining_states, columns=["state"])
+        remaining_states_df.to_csv(
+            "day25_CSVData_Pandas/us_states_game/states_to_learn.csv"
+        )
         break
 
     for index, row in data.iterrows():
@@ -47,11 +54,3 @@ while count < 50:
             state.write(row["state"])
             guessed_list.append(row["state"])
             count += 1
-
-# to get a list of remaining states
-for state in all_states:
-    if state not in guessed_list:
-        remaining_states.append(state)
-
-remaining_states_df = pd.DataFrame(remaining_states, columns=["state"])
-remaining_states_df.to_csv("day25_CSVData_Pandas/us_states_game/states_to_learn.csv")
