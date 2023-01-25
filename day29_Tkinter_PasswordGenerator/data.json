@@ -1,0 +1,17 @@
+{
+    "flipkart": {
+        "email": "example@email.com",
+        "password": "n$P2WM*8re3$O+L",
+        "note": "ds"
+    },
+    "twitter": {
+        "email": "example@email.com",
+        "password": "bl1s$1Djmrb)",
+        "note": "test"
+    },
+    "amazon": {
+        "email": "example@email.com",
+        "password": "s)F3H%D8CQ33W*Ms",
+        "note": "test"
+    }
+}
