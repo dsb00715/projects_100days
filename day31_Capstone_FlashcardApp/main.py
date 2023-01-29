@@ -7,12 +7,12 @@ import random
 BACKGROUND_COLOR = "#B1DDC6"
 LANGUAGE_FONT = ("Ariel", 40, "italic")
 WORD_FONT = ("Ariel", 60, "bold")
-BACK_IMAGE = "day30_Capstone_FlashcardApp\images\card_back.png"
-FRONT_IMAGE = "day30_Capstone_FlashcardApp\images\card_front.png"
-RIGHT_IMAGE = "./day30_Capstone_FlashcardApp/images/right.png"
-WRONG_IMAGE = "day30_Capstone_FlashcardApp\images\wrong.png"
-MAIN_FILE = "day30_Capstone_FlashcardApp\data\german_words.csv"
-WORDS_TO_LEARN = "day30_Capstone_FlashcardApp\data\words_to_learn.csv"
+BACK_IMAGE = "day31_Capstone_FlashcardApp\images\card_back.png"
+FRONT_IMAGE = "day31_Capstone_FlashcardApp\images\card_front.png"
+RIGHT_IMAGE = "./day31_Capstone_FlashcardApp/images/right.png"
+WRONG_IMAGE = "day31_Capstone_FlashcardApp\images\wrong.png"
+MAIN_FILE = "day31_Capstone_FlashcardApp\data\german_words.csv"
+WORDS_TO_LEARN = "day31_Capstone_FlashcardApp\data\words_to_learn.csv"
 card_data = {}
 
 try:
