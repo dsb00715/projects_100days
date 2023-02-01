@@ -1,12 +1,13 @@
 import requests
 from twilio.rest import Client
+import os
 
-API_KEY = "85914643e5e3ff13ecb9229870088b23"
+API_KEY = os.getenv("OWM_API_KEY")
 MY_LAT = "51.401230"
 MY_LONG = "6.768980"
 OWM_API = "https://api.openweathermap.org/data/2.8/onecall"
 account_sid = "AC1e135815ad48c937fdc431effbb0cc74"
-auth_token = "62a03bcbea886bc1b2d5ad38f89ea780"
+auth_token = os.getenv("AUTH_TOKEN")
 
 
 def send_SMS():
@@ -38,6 +39,4 @@ for weather_data in hourly_data:
 if any(
     val < 700 for val in hourly_codes
 ):  # to check if any list element match condition.
-    # send_SMS()
-    print("It's going to rain.")
-    print(hourly_codes)
+    send_SMS()
