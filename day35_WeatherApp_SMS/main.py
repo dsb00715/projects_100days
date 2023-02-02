@@ -39,4 +39,5 @@ for weather_data in hourly_data:
 if any(
     val < 700 for val in hourly_codes
 ):  # to check if any list element match condition.
-    send_SMS()
+    # send_SMS()
+    print("it's going to rain!")
