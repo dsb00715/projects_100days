@@ -1,7 +1,8 @@
+import os
 from requests import get
 import datetime as dt
 
-TEQ_API_KEY = "a1tTqGjjHpfgKhmUp-_3ar9_Y7b5L4QC"
+TEQ_API_KEY = os.getenv("TEQ_API_KEY")
 TEQ_ENDPOINT = "https://api.tequila.kiwi.com/v2/search"
 HOME_CITY = "DUS"
 TOMORROW = (dt.datetime.today() + dt.timedelta(days=1)).strftime("%d/%m/%Y")

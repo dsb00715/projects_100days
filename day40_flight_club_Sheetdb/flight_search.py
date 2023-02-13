@@ -1,7 +1,8 @@
+import os
 from requests import get, put, post
 from json import loads
 
-TEQ_API_KEY = "a1tTqGjjHpfgKhmUp-_3ar9_Y7b5L4QC"
+TEQ_API_KEY = os.getenv("TEQ_API_KEY")
 TEQ_ENDPOINT = "https://api.tequila.kiwi.com/locations/query"
 
 

@@ -1,38 +1,16 @@
+import os
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
-EMAIL = "testgetesten@gmail.com"
-PASSWORD = "wmdoeffzjfuabjcg"
+EMAIL = os.getenv("EMAIL")
+PASSWORD = os.getenv("PASSWORD")
 
 
 class NotificationManager:
     # This class is responsible for sending notifications with the deal flight details.
-    # def send_email(self, data, user_data):
-    #     link = MIMEText(
-    #         """<a href="{data_link}">click here to book your tickets</a>""".format(
-    #             data_link=data["deep_link"]
-    #         ),
-    #         "html",
-    #     )
-    #     # link = data["deep_link"]
-    #     if len(data["route"]) == 2:
-    #         message = f"Low price alert!!\nonly €{data['price']} to fly from {data['cityFrom']}-{data['route'][0]['flyFrom']} to {data['cityTo']}-{data['route'][0]['flyTo']},\nfrom {data['route'][0]['local_departure'].split('T')[0]} to {data['route'][1]['local_arrival'].split('T')[0]}\n{link}"
-    #     elif len(data["route"]) >= 4:
-    #         message = f"Low price alert!!\nonly €{data['price']} to fly from {data['cityFrom']}-{data['route'][0]['flyFrom']} to {data['cityTo']}-{data['route'][1]['flyTo']},\nfrom {data['route'][0]['local_departure'].split('T')[0]} to {data['route'][2]['local_arrival'].split('T')[0]}\nFlight has 1 stop over, via {data['route'][1]['cityFrom']} city.\n{link}"
-
-    #     with smtplib.SMTP("smtp.gmail.com") as connection:
-    #         connection.starttls()
-    #         connection.login(user=EMAIL, password=PASSWORD)
-    #         print(data["price"])
-    #         for user in user_data:
-    #             connection.sendmail(
-    #                 from_addr=EMAIL,
-    #                 to_addrs=user["Email"],
-    #                 msg=f"Subject:Flight to {data['cityTo']} is cheaper!!!\n\nDear {user['FirstName']},\n{message}".encode(
-    #                     "utf-8"
-    #                 ),
-    #             )
+    def __init__(self) -> None:
+        pass
 
     def send_email(self, data, user_data):
         for user in user_data:
@@ -67,7 +45,6 @@ class NotificationManager:
                 """.format(
                     **locals()
                 )
-                # message = f"Low price alert!!\nonly €{data['price']} to fly from {data['cityFrom']}-{data['route'][0]['flyFrom']} to {data['cityTo']}-{data['route'][0]['flyTo']},\nfrom {data['route'][0]['local_departure'].split('T')[0]} to {data['route'][1]['local_arrival'].split('T')[0]}\n{link}"
             elif len(data["route"]) >= 4:
                 airport_to = data["route"][1]["flyTo"]
                 inbound_date = data["route"][2]["local_arrival"].split("T")[0]
@@ -88,8 +65,6 @@ class NotificationManager:
                 """.format(
                     **locals()
                 )
-                # message = f"Low price alert!!\nonly €{data['price']} to fly from {data['cityFrom']}-{data['route'][0]['flyFrom']} to {data['cityTo']}-{data['route'][1]['flyTo']},\nfrom {data['route'][0]['local_departure'].split('T')[0]} to {data['route'][2]['local_arrival'].split('T')[0]}\nFlight has 1 stop over, via {data['route'][1]['cityFrom']} city.\n{link}"
-
             message.attach(MIMEText(msg, "html"))
 
             with smtplib.SMTP("smtp.gmail.com") as connection:

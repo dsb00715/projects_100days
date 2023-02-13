@@ -1,10 +1,11 @@
+import os
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
 
-EMAIL = "testgetesten@gmail.com"
-PASSWORD = "wmdoeffzjfuabjcg"
+EMAIL = os.getenv("EMAIL")
+PASSWORD = os.getenv("PASSWORD")
 EMAIL_TO = "dsb007151@gmail.com"
 LINK = "https://www.python.org"
 

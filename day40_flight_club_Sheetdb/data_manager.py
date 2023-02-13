@@ -1,9 +1,10 @@
-from requests import get, put, post
+import os
+from requests import get, put
 from json import loads
 
 SHEET_ENDPOINT = "https://sheetdb.io/api/v1/be2wved2919pg"
-SHEET_USER = "ql6kxdrm"
-SHEET_PASS = "6g69nrm52g5tpmxxtvql"
+SHEET_USER = os.getenv("SHEET_USER")
+SHEET_PASS = os.getenv("SHEET_PASS")
 
 
 class DataManager:
